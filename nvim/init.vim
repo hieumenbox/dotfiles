@@ -158,7 +158,6 @@ nnoremap <C-l> <C-w>l
 " (used with Vim-plug - https://github.com/junegunn/vim-plug)
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin()
-"call plug#begin(stdpath('config') . '/plugged')
 " Theme
   Plug 'joshdick/onedark.vim',                  " Dark theme
   Plug 'dracula/vim',
