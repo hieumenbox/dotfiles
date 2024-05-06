@@ -1,0 +1,32 @@
+[user]
+	email = hieu.nguyen.dn@renesas.com
+	name = Hieu Nguyen
+[alias]
+	last = log -1 HEAD
+	ba = branch -a
+	br = branch 
+	st = status 
+	cm = commit -s
+	reset1 = reset --hard HEAD~1
+	loge =  log --oneline --graph --pretty=format:'%C(auto)%h%C(auto)%d %s %C(dim white)(%aN, %ar)'
+	graph = log --all --graph --pretty=format:'%C(auto)%h%C(auto)%d %s %C(dim white)(%aN, %ar)'
+	graph2 = log --graph --full-history --all --color --pretty=format:"%x1b[31m%h%x09%x1b[32m%d%x1b[0m%x20%s%x20%x1b[33m(%an)%x1b[0m"
+	# Print branch last used
+	wip  = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/remotes/
+	wip2 = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/remotes/origin
+	wip3 = for-each-ref --sort='-committerdate:iso8601' --format='%(color:green)%(committerdate:relative)%09%(color:white)%(refname:short)' refs/heads/ refs/remotes/rvc_gitlab
+	wip4 = for-each-ref --sort='authordate:iso8601' --format=' %(color:green)%(authordate:relative)%09%(color:white)%(refname:short)' refs/remotes/rcar_env
+	cp = cherry-pick
+	logo = log --oneline --pretty=format:'%C(auto)%h%C(auto)%d %s %C(dim Green)(%aN, %ar)'
+	td = tag --sort=-creatordate
+
+[grep]
+	lineNumber = true
+[commit]
+	gpgsign = false
+[http]
+	sslVerify = false
+[diff]
+	renameLimit = 65000
+[core]
+	editor = vim
