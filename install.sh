@@ -1,114 +1,85 @@
-#!/bin/sh
+#!/bin/bash
 
-echo "Mac OS Install Setup Script"
+# This is the setup script for my config. The idea is to be able to run
+# this after cloning the repo on a Mac or Ubuntu (WSL) system and be up
+# and running very quickly.
 
-sudo -v
-while true; do
-	sudo -n true
-	sleep 60
-	kill -0 "$$" || exit
-done 2>/dev/null &
+OLD_DOTFILES="dotfile_bk_$(date -u +"%Y%m%d%H%M%S")"
+mkdir $OLD_DOTFILES
 
-echo "Installing xcode..."
-xcode-select --install
+function backup_if_exists() {
+    if [ -f $1 ];
+    then
+      mv $1 $OLD_DOTFILES
+    fi
+    if [ -d $1 ];
+    then
+      mv $1 $OLD_DOTFILES
+    fi
+}
 
-echo "Installing brew..."
-if test ! $(which brew); then
-	## Don't prompt for confirmation when installing homebrew
-	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" </dev/null
-fi
+# Clean common conflicts
+#backup_if_exists ~/.bash_profile
+backup_if_exists ~/.bashrc
+backup_if_exists ~/.gitconfig
+backup_if_exists ~/.tmux.conf
+backup_if_exists ~/.config/nvim/init.vim
 
-brew upgrade
-brew update
-brew tap caskroom/cask
+#exit -1
 
-echo "Installing recipes from brew..."
 
-brew install bat
-brew install btop
-brew install dooit
-brew install exa
-brew install fd
-brew install fzf
-brew install gdu
-brew install gh
-brew install git
-brew install glow
-brew install helix
-brew install hyperfine
-brew install jq
-brew install kitty
-brew install lazydocker
-brew install lazygit
-brew install lolcat
-brew install newsboat
-brew install ripgrep
-brew install stow
-brew install taskell
-brew install tmux
-brew install trash-cli
-brew install tz
-brew install viddy
-brew install watson
-brew install wezterm
-brew install wifi-password
-brew install zellij
-brew install zoxide
+# create directories
+export XDG_CONFIG_HOME="$HOME"/.config
+mkdir -p "$XDG_CONFIG_HOME"/bash
 
-# Install zap - this didn't work via script
-# zsh <(curl -s https://raw.githubusercontent.com/zap-zsh/zap/master/install.zsh) --branch release-v1
+# Symbolic links
 
-echo "Installing node..."
-brew install fnm
-fnm install v16.17
-fnm use v16.17
+#ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
+ln -sf "$PWD/bash/.bashrc" "$HOME"/.bashrc
+ln -sf "$PWD/git/.gitconfig" "$HOME"/.gitconfig
+ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 
-echo "Installing node apps..."
-npm install -g fkill-cli
-npm install -g @githubnext/github-copilot-cli
-npm install -g npkill
-brew install yarn
+# set up blog
+# git clone git@github.com:mischavandenburg/hugo-PaperModX-theme.git themes/PaperModX --depth=1
 
-echo "Installing rust..."
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-
-echo "Installing rust apps..."
-cargo install bob-nvim
-bob install stable
-bob use stable
-
-echo "Installing python..."
-# brew install python3
+# Second Brain
+# This one's a little tricky on MacOS because the path contains a space. It needs to be stored as an array,
+# and when called it needs to be quoted.
+# export SECOND_BRAIN=("/Users/mischa/Library/Mobile Documents/iCloud~md~obsidian/Documents/second-brain-01-07-23")
+# export SECOND_BRAIN=("/Users/mischa/Library/Mobile Documents/iCloud~md~obsidian/Documents/The Garden")
+# ln -sf "$SECOND_BRAIN" ~/garden
 #
-echo "Installing python apps..."
-# pip3 install --upgrade pip
-# pip3 install --user pylint
-# pip3 install --user flake8
+# iCloud
+# export ICLOUD=("/Users/mischa/Library/Mobile Documents/com~apple~CloudDocs")
+# ln -sf "$ICLOUD" ~/icloud
 
-echo "Installing GUI apps..."
-brew install azure-data-studio
-brew install meetingbar
-brew install orbstack
+# Packages
 
-echo "Brew clean up..."
-brew cleanup
+# install brew
+#/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-echo "Installing fonts..."
-brew tap caskroom/fonts
-brew install font-jetbrains-mono
-brew install font-jetbrains-mono-nerd-font
-brew install font-symbols-only-nerd-font
+# get the font out of the way first, it's the most annoying
+#
+# install for Mac using brew. For ubuntu:
 
-git config --global user.name 'Elijah Manor'
-git config --global user.email 'elijah.manor@gmail.com'
-git config --global credential.helper
+# brew packages Mac
+# amethyst fzf nvim exa hugo bash-completion@2 newsboat kubectl starship
+# brew install --cask alacritty
 
-echo "Installing tmux plugin manager..."
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+# ubuntu packages apt
+#sudo apt install ripgrep gh
 
-echo "Installing personal dotfiles..."
-git clone https://github.com/elijahmanor/dotfiles.git ~/dotfiles
-cd dotfiles
+# ubuntu apt neovim setup
+#sudo apt install gcc g++ unzip
 
-echo ""
-echo "Done!"
+# ubuntu brew for vim and neovim setup
+#sudo apt install fd fzf kubectl kubectx derailed/k9s/k9s starship
+
+# ubuntu brew for neovim setup
+#brew install neovim go lazygit
+
+# ubuntu specific notes
+# create symbolic link to neovim from vim when not using neovim on
+# Ubuntu systems, because I use the v alias everywhere.
+# sudo ln -sf /usr/bin/vim /usr/bin/nvim
