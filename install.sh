@@ -43,7 +43,8 @@ ln -sf "$PWD/vim/.vimrc" "$HOME"/.vimrc
 ln -sf "$PWD/ssh/config" "$HOME"/.ssh/config
 
 # Update local share data for nvim
-ln -sf /shsv/Android/SoftIP/35_hieunguyen/setup_env/plugin/20240416/nvim nvim
+rm -rf ~/.local/share/nvim
+ln -sf /shsv/Android/SoftIP/35_hieunguyen/setup_env/plugin/20240416/nvim ~/.local/share/nvim
 
 # set up blog
 # git clone git@github.com:mischavandenburg/hugo-PaperModX-theme.git themes/PaperModX --depth=1
