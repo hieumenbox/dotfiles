@@ -8,6 +8,6 @@ fi
 file_name=$(echo "$1" | tr ' ' '-')
 formatted_file_name=$(date "+%Y-%m-%d")_${file_name}.md
 
-cd "/shsv/Android/SoftIP/35_hieunguyen/setup_env/obsidian_note/ZazenCodes-obsidian" || exit
+cd $SECOND_BRAIN || exit
 touch "inbox/${formatted_file_name}"
 nvim "inbox/${formatted_file_name}"

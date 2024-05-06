@@ -6,6 +6,7 @@
 # Export user bin
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
+export SECOND_BRAIN="/shsv/Android/SoftIP/35_hieunguyen/setup_env/obsidian_note/ZazenCodes-obsidian"
 
 # My own scirpt Bin Path
 export PATH=$PATH:/shsv/Android/SoftIP/35_hieunguyen/setup_env/dotfiles/bin
@@ -56,6 +57,12 @@ alias lg='lazygit'
 
 #Dotfiles bin
 alias fcd="source fuzzy_cd"
+
+# Obsidian
+alias oo='cd $SECOND_BRAIN'
+alias or='nvim $SECOND_BRAIN/inbox/*.md'
+#alias ou='cd $SECOND_BRAIN && node batchUpload.js --lastmod-days-window 5'
+
 
 
 # Wrapper to fucntion
