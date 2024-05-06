@@ -4,8 +4,8 @@
 # this after cloning the repo on a Mac or Ubuntu (WSL) system and be up
 # and running very quickly.
 
-OLD_DOTFILES="dotfile_bk_$(date -u +"%Y%m%d%H%M%S")"
-mkdir $OLD_DOTFILES
+#OLD_DOTFILES="dotfile_bk_$(date -u +"%Y%m%d%H%M%S")"
+#mkdir $OLD_DOTFILES
 
 function backup_if_exists() {
     if [ -f $1 ];
@@ -20,10 +20,10 @@ function backup_if_exists() {
 
 # Clean common conflicts
 #backup_if_exists ~/.bash_profile
-backup_if_exists ~/.bashrc
-backup_if_exists ~/.gitconfig
-backup_if_exists ~/.tmux.conf
-backup_if_exists ~/.config/nvim/init.vim
+#backup_if_exists ~/.bashrc
+#backup_if_exists ~/.gitconfig
+#backup_if_exists ~/.tmux.conf
+#backup_if_exists ~/.config/nvim/init.vim
 
 #exit -1
 
@@ -37,7 +37,7 @@ mkdir -p "$XDG_CONFIG_HOME"/bash
 #ln -sf "$PWD/.bash_profile" "$HOME"/.bash_profile
 ln -sf "$PWD/bash/.bashrc" "$HOME"/.bashrc
 ln -sf "$PWD/git/.gitconfig" "$HOME"/.gitconfig
-ln -sf "$PWD/.tmux.conf" "$HOME"/.tmux.conf
+ln -sf "$PWD/tmux/.tmux.conf" "$HOME"/.tmux.conf
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 
 # set up blog
