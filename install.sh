@@ -40,6 +40,7 @@ ln -sf "$PWD/git/.gitconfig" "$HOME"/.gitconfig
 ln -sf "$PWD/tmux/.tmux.conf" "$HOME"/.tmux.conf
 ln -sf "$PWD/nvim" "$XDG_CONFIG_HOME"/nvim
 ln -sf "$PWD/vim/.vimrc" "$HOME"/.vimrc
+ln -sf "$PWD/ssh/config" "$HOME"/.ssh/config
 
 # set up blog
 # git clone git@github.com:mischavandenburg/hugo-PaperModX-theme.git themes/PaperModX --depth=1

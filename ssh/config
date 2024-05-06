@@ -1,20 +1,12 @@
-Host *
-    ControlMaster auto
-    ControlPath ~/.ssh/S.%r@%h:%p
-    ControlPersist 5m
+Host work
+    Hostname 172.29.145.85
+    User hieutringuyen
 
-Host School
-    Hostname ubuntu2004-002.student.cs.uwaterloo.ca
-    User s2yan
+Host v4h
+    Hostname 172.29.145.189
+    User hieutringuyen
 
-Host School1804
-    Hostname ubuntu1804-002.student.cs.uwaterloo.ca
-    User s2yan
+Host ci
+    Hostname 172.29.145.230
+    User hieutringuyen
 
-Host git
-    Hostname github.com
-    User git
-
-Host unsw
-    Hostname login.cse.unsw.edu.au
-    User z5521807
