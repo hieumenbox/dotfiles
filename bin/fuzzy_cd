@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+  #cd $(find "$selected" -type d | fzf)
+  cd $(fd "$selected" --type d | fzf)
+else
+  #TODO: 
+  path=$(fd --type d | fzf)
+  
+  if [[ $path != "" ]]; then
+      cd $path
+  fi
+fi
+

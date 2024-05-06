@@ -7,6 +7,9 @@
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
 
+# My own scirpt Bin Path
+export PATH=$PATH:/shsv/Android/SoftIP/35_hieunguyen/setup_env/dotfiles/bin
+
 # Config FZF
 # CTRL-/ to toggle small preview window to see the full command
 # CTRL-Y to copy the command into clipboard using pbcopy
@@ -50,6 +53,10 @@ alias tmuxc='vi ~/.tmux.conf'
 
 #lazygit
 alias lg='lazygit'
+
+#Dotfiles bin
+alias fcd="source fuzzy_cd"
+
 
 # Wrapper to fucntion
 alias chp='changepath'
