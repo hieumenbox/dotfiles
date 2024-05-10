@@ -10,3 +10,6 @@ Host ci
     Hostname 172.29.145.230
     User hieutringuyen
 
+Host pc141
+    Hostname 172.29.145.141
+    User hieutringuyen
