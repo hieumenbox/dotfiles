@@ -7,6 +7,7 @@
 export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
 export SECOND_BRAIN="/shsv/Android/SoftIP/35_hieunguyen/setup_env/obsidian_note/ZazenCodes-obsidian"
+export REPO_DIR="/shsv/Android/SoftIP/35_hieunguyen/_REPO"
 
 # My own scirpt Bin Path
 export PATH=$PATH:/shsv/Android/SoftIP/35_hieunguyen/setup_env/dotfiles/bin
@@ -62,6 +63,9 @@ alias fcd="source fuzzy_cd"
 alias oo='cd $SECOND_BRAIN'
 alias or='nvim $SECOND_BRAIN/inbox/*.md'
 #alias ou='cd $SECOND_BRAIN && node batchUpload.js --lastmod-days-window 5'
+
+# TLDR
+alias wk='wiki'
 
 
 
@@ -126,6 +130,7 @@ alias genkey='cd /shsv/Android/SoftIP/35_hieunguyen/01_OSS_Sec  && ./utility_bui
 alias recentfiles='find . -type f -printf "%Tc %p\n" | sort -r'
 
 #open ripgrep
+alias rg='rg --line-number'
 #alias rg='/shsv/Android/SoftIP/35_hieunguyen/setup_env/ripgrep-13.0.0-x86_64-unknown-linux-musl/rg'
 #export PATH=$PATH:/shsv/Android/SoftIP/35_hieunguyen/setup_env/ripgrep-13.0.0-x86_64-unknown-linux-musl/rg
 #set export FZF_DEFAULT_COMMAND='/shsv/Android/SoftIP/35_hieunguyen/setup_env/ripgrep-13.0.0-x86_64-unknown-linux-musl/rg --files --hidden --follow --glob "!.git/*"'

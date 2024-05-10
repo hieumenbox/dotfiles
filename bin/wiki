@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# 1. Change path to tldr repo
+cd $REPO_DIR/_TOOL/tldr
+
+# 2. Cat file with fzf selection and less 
+cat $(git ls-files | fzf)
+
+#if [[ $# -eq 1 ]]; then
+#  selected=$1
+#  #cd $(find "$selected" -type d | fzf)
+#  cd $(fd "$selected" --type d | fzf)
+#else
+#  #TODO: 
+#  path=$(fd --type d | fzf)
+#  
+#  if [[ $path != "" ]]; then
+#      cd $path
+#  fi
+#fi
+
