@@ -8,6 +8,8 @@ export PATH=$PATH:~/bin
 export PATH=$PATH:~/.local/bin
 export SECOND_BRAIN="/shsv/Android/SoftIP/35_hieunguyen/setup_env/obsidian_note/ZazenCodes-obsidian"
 export REPO_DIR="/shsv/Android/SoftIP/35_hieunguyen/_REPO"
+export TARMAC_UTILITY="$REPO_DIR/github/ARM-sotfware/tarmac-trace-utilities"
+export PATH=$PATH:$TARMAC_UTILITY
 
 # My own scirpt Bin Path
 export PATH=$PATH:/shsv/Android/SoftIP/35_hieunguyen/setup_env/dotfiles/bin
@@ -34,8 +36,8 @@ alias ll='ls -la -t'
 alias clr='clear'
 
 # Open nvim
-alias nvim='/shsv/Android/SoftIP/35_hieunguyen/setup_env/nvim-linux64/bin/nvim'
-alias v='/data2/hieunguyen/setup_env/nvim-linux64/bin/nvim'
+alias v='/shsv/Android/SoftIP/35_hieunguyen/setup_env/nvim-linux64/bin/nvim'
+#alias v='/data2/hieunguyen/setup_env/nvim-linux64/bin/nvim'
 export PATH=$PATH:/shsv/Android/SoftIP/35_hieunguyen/setup_env/nvim-linux64/bin/nvim
 alias nvimf='nvim $(fzf)'
 
@@ -147,7 +149,8 @@ function changepath() {
 	if [ -z "$1" ]; then
 		
 		#echo "Usage: $0 file_type"
-		echo `pwd`  | sed 's/\//\\/g' | sed 's/shsv/\\rvc-vnas-01/g'
+		echo `pwd`  | sed 's/\//\\/g' | sed 's/shsv/\\rvc-vnas-01.rvc.renesas.com/g'
+		#echo `pwd`  | sed 's/\//\\/g' | sed 's/shsv/\\rvc-vnas-01/g'
 		
 	else
 		echo $1  | sed 's/\//\\/g' | sed 's/shsv/\\rvc-vnas-01/g'
