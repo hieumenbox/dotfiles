@@ -69,6 +69,43 @@ alias or='nvim $SECOND_BRAIN/inbox/*.md'
 # TLDR
 alias wk='wiki'
 
+# Python doc
+#alias pywk='pywiki'
+# TODO: write fzf wrappper to select wiki page:
+#alias pywk='wikipage $REPO_DIR/github/python/cpython rst'
+#alias ghwk='wikipage $REPO_DIR/github/github/docs-main md'
+#alias glwk='wikipage $REPO_DIR/gitlab/gitlab/gitlab-master md'
+# alias wk='wikipage $REPO_DIR/_TOOL/tldr md'
+
+# Define your aliases here
+declare -A aliases
+aliases=(
+  ["TLDR"]="wikipage $REPO_DIR/_TOOL/tldr md"
+  ["Python wiki"]="wikipage $REPO_DIR/github/python/cpython rst"
+  ["pycryptodome"]="wikipage $REPO_DIR/_Secure_Tool/pycryptodome rst"
+  ["Github wiki"]="wikipage $REPO_DIR/github/github/docs-main md"
+  ["Gitlab wiki"]="wikipage $REPO_DIR/gitlab/gitlab/gitlab-master md"
+  ["Second brain"]="wikipage $SECOND_BRAIN md"
+)
+
+# Function to display aliases using fzf
+wiki() {
+  local keys=("${!aliases[@]}")
+  local selected=$(printf "%s\n" "${keys[@]}" | fzf --prompt="Select an alias: ")
+
+  if [[ -n "$selected" ]]; then
+    echo "Selected alias: $selected"
+    if [[ "$selected" == "TLDR" ]]; then
+      echo "Executing additional commands for TLDR."
+      cd $REPO_DIR/_TOOL/tldr && cat $(git ls-files | fzf) 
+    else
+      echo "Executing: ${aliases[$selected]}"
+      eval "${aliases[$selected]}"
+    fi
+  else
+    echo "No alias selected."
+  fi
+}
 
 
 # Wrapper to fucntion
@@ -76,7 +113,7 @@ alias chp='changepath'
 
 # move to work dicrectory
 alias cdnhan='cd /shsv/SS2/RSS1/37_NhanHuynh/1_WORKDIR'
-alias cdtruong='cd /shsv/Android/SoftIP/39_TruongNguyen/1_Work_DIR' 
+alias cdtruong='cd /shsv/Android/SoftIP/39_TruongNguyen/01_Work_DIR' 
 alias cddien='cd /shsv/Android/SoftIP/10_DienPham/01_OSS_Sec'
 alias cdtask='cd /shsv/Android/SoftIP/35_hieunguyen/_Task/2024/Gen5'
 alias cdatf1='cd /shsv/Android/SoftIP/35_hieunguyen/01_OSS_Sec/arm-trusted-firmware'
@@ -90,7 +127,7 @@ alias cdsan='cd /shsv/DTV/Prj_WinCE/68_SAN_Sample_Code/01_Inputs/S4_SDK_3.16.0'
 alias cdsanrepo='cd /shsv/Android/SoftIP/35_hieunguyen/02_SAN/hwsansamplecodedev'
 alias cdpoc='cd /shsv/DTV/Prj_BSP/01_Input/10_SecureSW/Gen5_ATF'
 alias cddoc='cd /shsv/RCarSW/Documents'
-alias cdrepo='cd /shsv/Android/SoftIP/35_hieunguyen/_REPO/_SECURE'
+alias cdrp='cd /shsv/Android/SoftIP/35_hieunguyen/_REPO'
 alias cdimage='cd /shsv/RCarSW/rvc_git_repo/yocto/_YOCTO_IMAGES_'
 alias cddtvdoc='cd /shsv/DTV/Documents/Knowledge_Management'
 alias cdgen5doc='cd "/shsv/DTV/Documents/Knowledge_Management/01_Database_ESW_common/01_Technical Knowledge/Hardware/Gen5"'
@@ -106,6 +143,7 @@ alias cdbl31w='cd /shsv/Android/SoftIP/35_hieunguyen/01_OSS_Sec/_Palladium/Syste
 alias cdt32='cd /shsv/RCarSW/Documents/Lauterbach'
 alias cdbak='cd /shsv/SS2/RSS1/35_HieuNguyen/_REPO'
 alias gitrepo='fd -t d -H .git -d 6 | fzf'
+alias cdsblib='cd /shsv/Android/SoftIP/35_hieunguyen/_Task/2024/Gen5/00_Input/_from_BootROM_team/SB-Lib/20231124_SB-lib_a2/src'
 alias cd.='cd ..'
 alias cd..='cd ../..'
 alias cd...='cd ../../..'
@@ -211,5 +249,13 @@ function ide_3() {
     #tmux send-keys -t 1 "bash" Enter
     #tmux send-keys -t 2 "bash" Enter
     #tmux send-keys -t 3 "bash" Enter
+}
+
+function wikipage() {
+    local repo=$1
+    local file_type="*.$2"
+
+    cd $repo
+    nvim $(git ls-files "$file_type" | fzf) 
 }
 

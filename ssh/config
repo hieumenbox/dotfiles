@@ -13,3 +13,16 @@ Host ci
 Host pc141
     Hostname 172.29.145.141
     User hieutringuyen
+
+Host rvc
+    Hostname 172.29.138.144
+    User hieutringuyen
+
+Host internet
+    Hostname 192.168.20.10
+    User hieutringuyen
+
+# ssh hieutringuyen@10.231.49.2
+# how to ssh to internet lab pc
+# ssh 172.29.138.144  ---> ssh lsf-login02  --> ssh 10.231.49.2
+
