@@ -10,6 +10,16 @@ export SECOND_BRAIN="/shsv/Android/SoftIP/35_hieunguyen/setup_env/obsidian_note/
 export REPO_DIR="/shsv/Android/SoftIP/35_hieunguyen/_REPO"
 export TARMAC_UTILITY="$REPO_DIR/github/ARM-sotfware/tarmac-trace-utilities"
 export PATH=$PATH:$TARMAC_UTILITY
+export TMPDIR=/data1/hieunguyen/.temp
+
+if [ -d "/data1/hieunguyen/.temp" ]; then
+  export TMPDIR=/data1/hieunguyen/.temp
+else
+  export TMPDIR=/data2/hieunguyen/.temp
+fi
+export TMPDIR=/data1/hieunguyen/.temp
+
+
 
 # My own scirpt Bin Path
 export PATH=$PATH:/shsv/Android/SoftIP/35_hieunguyen/setup_env/dotfiles/bin
@@ -69,6 +79,10 @@ alias or='nvim $SECOND_BRAIN/inbox/*.md'
 # TLDR
 alias wk='wiki'
 
+# VSDK
+alias cdvsdk="cd '/shsv/DTV/Documents/Knowledge_Management/01_Database_ESW_common/01_Technical Knowledge/Hardware/Virtualizer/VPF_MBD/R-CarGen5'"
+alias cdvdk='cd /data1/hieunguyen/vsdk/02_VDK'
+
 # Python doc
 #alias pywk='pywiki'
 # TODO: write fzf wrappper to select wiki page:
@@ -123,6 +137,13 @@ alias cdtraining='cd /shsv/Android/SoftIP/35_hieunguyen/_Common/training/missing
 alias cdw='cd /shsv/Android/SoftIP/35_hieunguyen/01_OSS_Sec'
 alias cdsrp='cd /shsv/Android/SoftIP/35_hieunguyen/_REPO/_SECURE'
 alias cdlw='cd /data2/hieunguyen/01_OSS_Sec'
+if [ -d "/data1/hieunguyen/" ]; then
+  alias cdlw='cd /data1/hieunguyen/01_OSS_Sec'
+else
+  alias cdlw='cd /data2/hieunguyen/01_OSS_Sec'
+fi
+
+alias cddot='cd /shsv/Android/SoftIP/35_hieunguyen/setup_env/dotfiles'
 alias cdsan='cd /shsv/DTV/Prj_WinCE/68_SAN_Sample_Code/01_Inputs/S4_SDK_3.16.0'
 alias cdsanrepo='cd /shsv/Android/SoftIP/35_hieunguyen/02_SAN/hwsansamplecodedev'
 alias cdpoc='cd /shsv/DTV/Prj_BSP/01_Input/10_SecureSW/Gen5_ATF'
@@ -141,7 +162,7 @@ alias cdtldr='cd /shsv/Android/SoftIP/35_hieunguyen/_REPO/_TOOL/tldr/pages/commo
 alias cdnamnguyen='cd /shsv/Android/Supplier/for_MCU_and_friend/NamHaiNguyen'
 alias cdbl31w='cd /shsv/Android/SoftIP/35_hieunguyen/01_OSS_Sec/_Palladium/System_Validation_Code'
 alias cdt32='cd /shsv/RCarSW/Documents/Lauterbach'
-alias cdbak='cd /shsv/SS2/RSS1/35_HieuNguyen/_REPO'
+alias cdbk='cd /shsv/SS2/RSS1/35_HieuNguyen/_REPO'
 alias gitrepo='fd -t d -H .git -d 6 | fzf'
 alias cdsblib='cd /shsv/Android/SoftIP/35_hieunguyen/_Task/2024/Gen5/00_Input/_from_BootROM_team/SB-Lib/20231124_SB-lib_a2/src'
 alias cd.='cd ..'
@@ -154,6 +175,7 @@ alias gitpull='GIT_SSL_NO_VERIFY=true git pull origin'
 alias gitclone='GIT_SSL_NO_VERIFY=true git clone'
 alias gs='git status'
 alias gitdu='git count-objects -vH'
+alias hisfile='git log -p -- $(fzf)'
 
 #grep alias
 alias grep='grep --color=auto'
@@ -234,6 +256,12 @@ function ide_2() {
    tmux split-window -v -l 30% 'bash -c " exec bash"'
    tmux split-window -h -l 66% 'bash -c " exec bash"'
    tmux split-window -h -l 50% 'bash -c " exec bash"'
+}
+
+function burnwindow() {
+   tmux split-window -h -l 50% 'bash -c " exec bash"'
+   tmux split-window -v -l 50% 'bash -c " exec bash"'
+   tmux split-window -v -l 50% 'bash -c " exec bash"'
 }
 
 function ide_3() {

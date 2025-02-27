@@ -30,3 +30,9 @@
 	renameLimit = 65000
 [core]
 	editor = vim
+[safe]
+	directory = /shsv/Android/SoftIP/10_DienPham/rcar-env/.git
+	directory = /shsv/Android/SoftIP/10_DienPham/rcar-env
+	directory = /shsv/Android/SoftIP/10_DienPham/01_OSS_Sec/linux/.git
+	directory = /shsv/Android/SoftIP/10_DienPham/01_OSS_Sec/linux/.git
+	directory = /shsv/SS2/RSS1/10_DienPham/COMMON/scripts/.git
