@@ -59,3 +59,6 @@ ln -sf "$PWD/git/.gitconfig" "$HOME"/.gitconfig
 # SSH.
 ln -sf "$PWD/ssh/config" "$HOME"/.ssh/config
 
+# Lazygit.
+ln -sf "$PWD/lazygit/config.yml" "$HOME"/.config/lazygit/config.yml
+

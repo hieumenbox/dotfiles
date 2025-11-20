@@ -36,3 +36,7 @@
 	directory = /shsv/Android/SoftIP/10_DienPham/01_OSS_Sec/linux/.git
 	directory = /shsv/Android/SoftIP/10_DienPham/01_OSS_Sec/linux/.git
 	directory = /shsv/SS2/RSS1/10_DienPham/COMMON/scripts/.git
+	directory = /shsv/Android/SoftIP/10_DienPham/05_Gen5/optee_os/.git
+	directory = /shsv/Android/SoftIP/10_DienPham/_REPO/Gen5/gen5-rom-testdatacreation/.git
+	directory = /shsv/Android/SoftIP/10_DienPham/_REPO/Gen5/gen5-rom-doc/.git
+	directory = /shsv/Android/SoftIP/10_DienPham/_REPO/Gen5/gen5-rom-doc
