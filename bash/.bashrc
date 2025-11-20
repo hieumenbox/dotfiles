@@ -135,6 +135,7 @@ alias cdatf2='cd /shsv/Android/SoftIP/10_DienPham/01_OSS_Sec/arm-trusted-firmwar
 alias cdsvn='cd /shsv/Android/SoftIP/10_DienPham/_REPO/_SECURE/SVN/'
 alias cdtraining='cd /shsv/Android/SoftIP/35_hieunguyen/_Common/training/missing_semester '
 alias cdw='cd /shsv/Android/SoftIP/35_hieunguyen/01_OSS_Sec'
+alias cdnw='cd /shsv/hpc_sw1/HCTE/35_hieunguyen/01_OSS_Sec'
 alias cdsrp='cd /shsv/Android/SoftIP/35_hieunguyen/_REPO/_SECURE'
 alias cdlw='cd /data2/hieunguyen/01_OSS_Sec'
 if [ -d "/data1/hieunguyen/" ]; then
