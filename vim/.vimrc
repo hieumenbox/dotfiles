@@ -93,8 +93,13 @@ nnoremap <Leader>F yiw:Rg <CR> '<M-v>
 
 " Working with NERDTree
 " press `m` to call menu @ cursor position to (add,delete file)
-nnoremap <silent><F2> :NERDTreeFind<CR>
-nnoremap <silent><F3> :NERDTreeToggle<CR>
+" nnoremap <silent><F2> :NERDTreeFind<CR>
+" nnoremap <silent><F3> :NERDTreeToggle<CR>
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
 
 " GoTo code navigation, super cool to work with source code
 " go to definition for example go to the function where it is exported to use
