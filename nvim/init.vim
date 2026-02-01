@@ -12,6 +12,10 @@ set number                  " Show line number
 set relativenumber          " Show relative numbering
 set ignorecase              " Enable case-sensitive
 
+
+" let $PATH = expand("~/bin:") . $PATH
+let g:lazygit_path = expand("~/bin/lazygit")
+
 " Specify the path to the `rg` binary
 let g:rg_command = '/home/u/hieutringuyen/bin/rg'
 
@@ -100,6 +104,10 @@ nnoremap <leader>n :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+" setup mapping to call :LazyGit
+nnoremap <silent> <leader>lg :LazyGit<CR>
+
 
 
 " GoTo code navigation, super cool to work with source code
@@ -215,6 +223,9 @@ call plug#begin()
 
   " Coding style
   Plug 'vivien/vim-linux-coding-style'          " Linux coding style
+
+  " Lazygit requires nvim v0.7.2
+  Plug 'kdheepak/lazygit.nvim'
 
 call plug#end()
 
